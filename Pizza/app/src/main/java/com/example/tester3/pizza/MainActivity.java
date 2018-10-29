@@ -1,14 +1,19 @@
 package com.example.tester3.pizza;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.IntegerRes;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -18,13 +23,23 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox hamTaste;
     private CheckBox chickenTaste;
     private CheckBox cheesesTaste;
-    private CheckBox email;
+    private CheckBox checkBoxEmail;
+
     private TextView cost1;
     private TextView cost2;
     private Spinner paymentMethod;
+    private RadioGroup selectedSize;
+
     private LinearLayout layoutExpiry;
     private LinearLayout layoutCVV;
     private LinearLayout layoutCardNumber;
+    private LinearLayout layoutEmail;
+    private TextInputEditText inputEmail;
+
+    private TextInputEditText inputFirstName;
+    private TextInputEditText inputPhone;
+
+    private Button sendOrder;
     private int sizeCost = 0;
     private int tasteCost = 0;
 
@@ -42,25 +57,43 @@ public class MainActivity extends AppCompatActivity {
         layoutExpiry = findViewById(R.id.layoutExpiry);
         layoutCVV = findViewById(R.id.layoutCVV);
         layoutCardNumber = findViewById(R.id.layoutCardNumber);
-        email = findViewById(R.id.checkBoxEmail);
+        layoutEmail = findViewById(R.id.layoutEmail);
+        inputEmail = findViewById(R.id.inputEmail);
+        inputFirstName = findViewById(R.id.inputFirstName);
+        inputPhone = findViewById(R.id.inputPhone);
+
+        findViewById(R.id.orderButton).setOnClickListener(v -> {
+            String message;
+            if (checkIfTasteSelected())
+                message = getString(R.string.orderMessage,
+                        inputFirstName.getText().toString(),
+                        inputPhone.getText().toString(),
+                        getPrice(),
+                        paymentMethod.getSelectedItem(),
+                        getTaste(),
+                        getSelectedSize(),
+                        String.format("email: %s", getEmail()));
+            else
+                message = getString(R.string.tasteNotSelectedMessage);
+            Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+
+        });
+        checkBoxEmail = findViewById(R.id.checkBoxEmail);
+        checkBoxEmail.setOnCheckedChangeListener((compoundButton, isChecked) -> {
+            if (isChecked)
+                layoutEmail.setVisibility(View.VISIBLE);
+            else
+                layoutEmail.setVisibility(View.GONE);
+
+        });
+
         cost1 = findViewById(R.id.cost1);
         cost2 = findViewById(R.id.cost2);
 
-        ((RadioGroup) findViewById(R.id.pizzaSize)).setOnCheckedChangeListener((group, checkedId) -> {
+        selectedSize = findViewById(R.id.pizzaSize);
+        selectedSize.setOnCheckedChangeListener((group, checkedId) -> updateSizeCost(checkedId));
 
-            switch (checkedId) {
-                case R.id.sm30:
-                    sizeCost = Utils.getIntRes(MainActivity.this, R.integer.sm30Cost);
-                    break;
-                case R.id.sm40:
-                    sizeCost = Utils.getIntRes(MainActivity.this, R.integer.sm40Cost);
-                    break;
-                case R.id.sm50:
-                    sizeCost = Utils.getIntRes(MainActivity.this, R.integer.sm50Cost);
-                    break;
-            }
-            updateCost();
-        });
+        updateSizeCost(selectedSize.getCheckedRadioButtonId());
 
         mushroomsTaste.setOnClickListener(radioButtonClickListener);
         hamTaste.setOnClickListener(radioButtonClickListener);
@@ -82,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 hideBankInputVisibility();
             }
         });
+
     }
 
     View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
@@ -114,6 +148,69 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private void updateSizeCost(@IdRes int checkedId) {
+
+        switch (checkedId) {
+            case R.id.sm30:
+                sizeCost = Utils.getIntRes(MainActivity.this, R.integer.sm30Cost);
+                break;
+            case R.id.sm40:
+                sizeCost = Utils.getIntRes(MainActivity.this, R.integer.sm40Cost);
+                break;
+            case R.id.sm50:
+                sizeCost = Utils.getIntRes(MainActivity.this, R.integer.sm50Cost);
+                break;
+        }
+        updateCost();
+    }
+
+    private int getSelectedSize() {
+
+        int btnId = selectedSize.getCheckedRadioButtonId();
+
+        switch (btnId) {
+            case R.id.sm30:
+                return 30;
+            case R.id.sm40:
+                return 40;
+            case R.id.sm50:
+                return 50;
+        }
+
+        return 0;
+    }
+
+    private String getTaste() {
+
+        StringBuilder builder = new StringBuilder();
+
+        if (mushroomsTaste.isChecked())
+            builder.append(" грибы ");
+
+        if (hamTaste.isChecked())
+            builder.append(" ветчина ");
+
+        if (chickenTaste.isChecked())
+            builder.append(" курица ");
+
+        if (cheesesTaste.isChecked())
+            builder.append(" 4 сыра ");
+
+        return builder.toString();
+    }
+
+    private int getPrice() {
+        return sizeCost + tasteCost;
+    }
+
+    private String getEmail() {
+
+        if (checkBoxEmail.isChecked())
+            return inputEmail.getText().toString();
+        else return "";
+
+    }
+
     private void updateBankInfoVisibility(PaymentMethod method) {
         if (method == PaymentMethod.BankCard)
             showBankInputVisibility();
@@ -122,8 +219,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateCost() {
-        cost1.setText(String.format(Locale.getDefault(), "%d", sizeCost + tasteCost));
-        cost2.setText(String.format(Locale.getDefault(), "%d", sizeCost + tasteCost));
+        cost1.setText(String.format(Locale.getDefault(), "%d", getPrice()));
+        cost2.setText(String.format(Locale.getDefault(), "%d", getPrice()));
 
     }
 
@@ -138,4 +235,9 @@ public class MainActivity extends AppCompatActivity {
         layoutExpiry.setVisibility(View.GONE);
         layoutCVV.setVisibility(View.GONE);
     }
+
+    private boolean checkIfTasteSelected() {
+        return mushroomsTaste.isChecked() || hamTaste.isChecked() || chickenTaste.isChecked() || cheesesTaste.isChecked();
+    }
+
 }
