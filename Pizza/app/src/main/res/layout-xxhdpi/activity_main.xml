@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="395dp"
+                    android:layout_height="200dp"
+                    android:layout_weight="20"
+                    app:srcCompat="@drawable/logo"
+                    android:contentDescription="TODO" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="20"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="match_parent"
+                        android:layout_height="222dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/amita_bold"
+                        android:gravity="center_vertical|center_horizontal|fill"
+                        android:text="@string/pizzaOrder"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/textCost"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/amita_bold"
+                        android:gravity="center_vertical"
+                        android:paddingRight="50dp"
+                        android:text="@string/textCost"
+                        android:textAlignment="center"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/cost1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/amita_bold"
+                            android:gravity="right|center"
+                            android:text="@string/zero"
+                            android:textAlignment="gravity"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/currency1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/amita_bold"
+                            android:gravity="center"
+                            android:text="@string/currency"
+                            android:textAlignment="gravity"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/firstName"
+                    android:layout_width="238dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/amita_bold"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="@string/firstNameText"
+                    android:textSize="18sp" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/inputFirstName"
+                        android:layout_width="230dp"
+                        android:layout_height="50dp"
+                        android:editable="false"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:hint="Enter your first name"
+                        android:inputType="textShortMessage"
+                        android:textSize="16sp" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="238dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/amita_bold"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="@string/phoneText"
+                    android:textSize="18sp" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/inputLastName"
+                        android:layout_width="230dp"
+                        android:layout_height="50dp"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:hint="Enter your phone"
+                        android:inputType="phone"
+                        android:textSize="16sp" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/size"
+                    android:layout_width="122dp"
+                    android:layout_height="50dp"
+
+                    android:fontFamily="@font/amita_bold"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="@string/sizeText"
+                    android:textSize="18sp" />
+                <RadioGroup
+                    android:id="@+id/pizzaSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/sm30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:fontFamily="@font/amita_bold"
+                        android:gravity="left|center_vertical|start"
+                        android:text="30" />
+
+                    <RadioButton
+                        android:id="@+id/sm40"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/amita_bold"
+                        android:text="40" />
+
+                    <RadioButton
+                        android:id="@+id/sm50"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/amita_bold"
+                        android:text="50" />
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/taste"
+                    android:layout_width="238dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/amita_bold"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="@string/tasteText"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp">
+
+                    <CheckBox
+                        android:id="@+id/mushrooms"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/amita_bold"
+                        android:text="Mushrooms"
+                        android:textAllCaps="false"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/ham"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/amita_bold"
+                        android:text="Ham"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/cheeses"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/amita_bold"
+                        android:text="4 cheeses"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/chicken"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/amita_bold"
+                        android:text="Chicken"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/pay"
+                    android:layout_width="265dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/amita_bold"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="@string/payText"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/spinnerPay"
+                    android:layout_width="346dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:entries="@array/payList" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutCardNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/cardNumber"
+                    android:layout_width="159dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/amita_bold"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="@string/cardNumber"
+                    android:textSize="18sp" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:paddingRight="10dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/inputCardNumber"
+                        android:layout_width="230dp"
+                        android:layout_height="50dp"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:hint="Enter your card number"
+                        android:inputType="number"
+                        android:textSize="16sp" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutExpiry"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/expiry"
+                    android:layout_width="391dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/amita_bold"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="@string/expiryText"
+                    android:textSize="18sp" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:paddingRight="10dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/inputExpiryMonth"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:hint="Month"
+                        android:inputType="numberDecimal"
+                        android:textSize="16sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:paddingRight="10dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/inputExpiryYear"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:hint="Year"
+                        android:inputType="numberDecimal"
+                        android:textSize="16sp" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutCVV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/cvv"
+                    android:layout_width="282dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/amita_bold"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="@string/cvvText"
+                    android:textSize="18sp" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:paddingRight="10dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/inputCVV"
+                        android:layout_width="230dp"
+                        android:layout_height="50dp"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:hint="Enter your CVV"
+                        android:inputType="numberPassword"
+                        android:textSize="16sp" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBoxEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/amita_bold"
+                    android:paddingLeft="15dp"
+                    android:text="Send a copy of the order by email? "
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="282dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/amita_bold"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="@string/emailText"
+                    android:textSize="18sp" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:paddingRight="10dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/inputEmail"
+                        android:layout_width="230dp"
+                        android:layout_height="50dp"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:hint="Enter your email"
+                        android:inputType="textEmailAddress"
+                        android:textSize="16sp" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textCost2"
+                    android:layout_width="512dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/amita_bold"
+                    android:gravity="center_vertical"
+                    android:text="@string/textCost"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/cost2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/amita_bold"
+                    android:gravity="right|center_vertical"
+                    android:text="@string/zero"
+                    android:textAlignment="gravity"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/currency2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/amita_bold"
+                    android:gravity="center_vertical"
+                    android:text="@string/currency"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/orderButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:fontFamily="@font/amita_bold"
+                    android:text="@string/orderText"
+                    android:textAllCaps="false"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
