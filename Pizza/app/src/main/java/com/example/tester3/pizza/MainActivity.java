@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText inputFirstName;
     private TextInputEditText inputPhone;
 
-    private Button sendOrder;
     private int sizeCost = 0;
     private int tasteCost = 0;
 
@@ -185,16 +184,16 @@ public class MainActivity extends AppCompatActivity {
         StringBuilder builder = new StringBuilder();
 
         if (mushroomsTaste.isChecked())
-            builder.append(" грибы ");
+            builder.append(" mushrooms ");
 
         if (hamTaste.isChecked())
-            builder.append(" ветчина ");
+            builder.append(" ham ");
 
         if (chickenTaste.isChecked())
-            builder.append(" курица ");
+            builder.append(" chicken ");
 
         if (cheesesTaste.isChecked())
-            builder.append(" 4 сыра ");
+            builder.append(" 4 cheeses ");
 
         return builder.toString();
     }

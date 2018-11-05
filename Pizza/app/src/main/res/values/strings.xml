@@ -29,6 +29,7 @@
     <string name="emailText">Email</string>
     <string name="currency">$</string>
     <string name="orderText">Send order</string>
-    <string name="orderMessage">Пользователь %s, номер телефона %s, Цена %d, способ оплаты %s, выбранный вкус: %s размер: %d %s</string>
-    <string name="tasteNotSelectedMessage">Вы не выбрали ни один вкус</string>
+    <string name="orderMessage">User: %s, phone: %s, price: %d, payment method: %s, taste: %s size: %d %s</string>
+    <string name="tasteNotSelectedMessage">You have not chosen any taste</string>
+    <string name="logo">TODO</string>
 </resources>
